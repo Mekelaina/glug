@@ -2,14 +2,16 @@
 #define  GLUG_TOKENS_H
 
 typedef enum tokentype {
-    TOK_NULL = 0,
-    TOK_EXIT = 1,
-    TOK_INT_LIT,
-    TOK_SEMICOLON
+    tt_none,
+    tt_funCall,
+    tt_lParen,
+    tt_rParen,
+    tt_intLit,
+    tt_semicolon
 } TokenType;
 
 
-typedef struct token {
+typedef struct Token {
     TokenType type;
     char* value;
 } Token;

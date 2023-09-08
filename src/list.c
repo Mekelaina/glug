@@ -1,22 +1,24 @@
 #include "list.h"
 #include <malloc.h>
 
-void initArray(Array *a, size_t initialSize){
-    a->array = malloc(initialSize * sizeof(char));
-    a->used = 0;
-    a->size = initialSize;
+//TODO: add propper error handling
+
+void initList(TokenList *l, size_t initialSize){
+    l->tokens = malloc(initialSize * sizeof(Token));
+    l->used = 0;
+    l->size = initialSize;
 }
 
-void insertArray(Array *a, int element){
-    if(a->used == a->size){
-        a->size *= 2;
-        a->array = realloc(a->array, a->size * sizeof(int));
+void insertList(TokenList *l, Token element){
+    if(l->used == l->size){
+        l->size *= 2;
+        l->tokens = realloc(l->tokens, l->size * sizeof(Token));
     }
-    a->array[a->used++] = element;
+    l->tokens[l->used++] = element;
 }
 
-void freeArray(Array *a){
-    free(a->array);
-    a->array = NULL;
-    a->used = a->size = 0;
+void freeList(TokenList *l){
+    free(l->tokens);
+    l->tokens = NULL;
+    l->used = l->size = 0;
 }
