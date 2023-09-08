@@ -5,7 +5,7 @@
 const char* input = "exit 0;";
 
 
-
+//test
 int main(){
     Array a;
 
